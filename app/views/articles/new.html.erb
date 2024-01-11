@@ -8,22 +8,7 @@
 </head>
 <body>
   <h1>New Article</h1>
-  <%= form_with scope: :article, url: articles_path, local: true do |f| %>
-    <% if @article.errors.any? %>
-        <% @article.errors.full_messages.each do |message| %>
-            <%= message %>
-        <%end %>
-    <% end %>
-    <div>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div>
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </div>
-    <%= f.button %>
-  <%end %>
+  <%= render partial: 'form', locals: {article: @article} %>
   <%= link_to "Return to home", articles_path %>
 
 </body>
