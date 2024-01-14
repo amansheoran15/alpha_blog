@@ -16,5 +16,5 @@
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
-  <%= f.button %>
+  <%= f.button(user.new_record? ? "Sign Up" : "Update Account")%>
 <%end %>
