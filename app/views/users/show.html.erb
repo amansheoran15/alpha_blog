@@ -1,0 +1,8 @@
+<%= "#{@user.username}'s profile" %>
+
+<% @user.articles.each do |article| %>
+  <div style = "margin: auto; padding: 2rem; text-align: center">
+    <p><strong>Title:</strong> <%= article.title%></p>
+    <p><strong>Description:</strong> <%= article.description %></p>
+  </div>
+<% end %>
