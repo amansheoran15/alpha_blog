@@ -1,0 +1,9 @@
+<h1>Alpha Bloggers</h1>
+
+<% @users.each do |user|%>
+  <div style = "margin: auto; padding: 2rem; text-align: center">
+    <p><strong>Title:</strong> <%= link_to user.username, user%></p>
+    <p><strong>Number of articles:</strong> <%= pluralize(user.articles.count, "article") %></p>
+    <p><strong>Joined: </strong><%= time_ago_in_words user.created_at %> ago</p>
+  </div>
+<% end %>
