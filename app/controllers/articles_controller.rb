@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
     @article.user = User.first
     if @article.save
       flash[:notice] = "Article has been saved!"
-      redirect_to article_path(@article), notice: "Article has been saved!"
+      redirect_to article_path(@article)
     else
       render :new, status: :unprocessable_entity
     end
