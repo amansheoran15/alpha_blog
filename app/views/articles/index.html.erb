@@ -14,13 +14,17 @@
       <td><%= article.user.username %></td>
       <td>
         <%= link_to "Show", article %>
-        <%= link_to "Edit", edit_article_path(article) %>
-<!--      Very important! How to add delete method in rails 7 to link_to-->
-        <%= link_to "Delete", article, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}%>
+        <% if logged_in? && current_user == article.user %>
+          <%= link_to "Edit", edit_article_path(article) %>
+  <!--      Very important! How to add delete method in rails 7 to link_to-->
+          <%= link_to "Delete", article, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}%>
+        <%end %>
       </td>
     </tr>
   <% end %>
 </table>
+<% if logged_in? %>
 <p>
   <%= link_to "Create New Article", new_article_path %>
 </p>
+<% end %>
